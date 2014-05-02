@@ -1,6 +1,6 @@
 
 <?
-$import("functioms")
+include "functions.php";
 
 	if($_POST["login"] == "" || $_POST["psw"] == "" || count($_POST) > 0){
 
