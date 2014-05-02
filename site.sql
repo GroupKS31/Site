@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 02 2014 г., 15:30
+-- Время создания: Май 02 2014 г., 15:52
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -71,11 +71,12 @@ CREATE TABLE IF NOT EXISTS `band` (
 
 CREATE TABLE IF NOT EXISTS `concert` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `band_id` int(11) NOT NULL,
-  `area_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `band_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `time` time DEFAULT NULL,
+  `manager_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
