@@ -2,7 +2,7 @@
 <?
 include "functions.php";
 
-	if($_POST["login"] == "" || $_POST["psw"] == "" || count($_POST) > 0){
+	if( count($_POST) == 0){
 
 	echo "
 		<html>
@@ -18,7 +18,7 @@ include "functions.php";
 		                    <td><input type=\"text\" name=\"login\" size=\"32\" value=\"\"/></td>
 		                </tr>
 		                <tr><td>Пароль:</td>
-		                    <td><input type=\"password\" name=\"password\" size=\"32\" value=\"\"/></td>
+		                    <td><input type=\"password\" name=\"psw\" size=\"32\" value=\"\"/></td>
 		                </tr>
 		                                <tr><td></td><td><input type=\"submit\" value=\"Вход\" /></td></tr>
 		            </form>
@@ -29,6 +29,18 @@ include "functions.php";
 		";
 	}
 	else{
+
+		$query = "SELECT * FROM users WHERE cat =\"manager\" and name = "."\"".(string)$_POST["login"]."\" and pswd = \"".(string)$_POST["psw"]."\"";
+		//$query = "SELECT * FROM users";
+		//echo $query;
+		//echo $query;
+		$result = queryDB($query);
+		
+		//$row =mysql_fetch_array( $result);
+		//echo count($result);
+		$row =mysql_fetch_array( $result);
+		
+
 
 	}
 ?>

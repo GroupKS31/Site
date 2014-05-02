@@ -2,13 +2,11 @@
 
 
 function queryDB($query){
-	$db_id =  mysql_connect("localhost", "Grass", "") or die (mysql_error());
-	$my_db = mysql_select_db("prilozhenie", $db_id) or die (mysql_error()); 
+	$db_id =  mysql_connect("localhost", "manager", "") or die (mysql_error());
+	$my_db = mysql_select_db("site", $db_id) or die (mysql_error()); 
 	$result = mysql_query($query,$db_id) or die(mysql_error()); 
 	mysql_close($db_id) or die (mysql_error());
-//	$row =mysql_fetch_array( $result);
-	//echo count($row);
-return $result;
+	return $result;
 }
 function alert($str){
 	echo"<script type=\"text/javascript\">
