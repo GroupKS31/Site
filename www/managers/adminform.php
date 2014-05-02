@@ -36,13 +36,20 @@
 			<P>Hello <? echo $name; ?> </p>				
 		</div>	
 		<div class = "LPanel">
+			<ul>
+				<?
+					$query = "SELECT * FROM concert WHERE manager_id = "."\"".$id."\"";
+					$result = queryDB($query);
+					while ($row = mysql_fetch_array($result)) {
+						echo "<li>".$row["name"]."</li>";
+					}
+				 ?>
+			</ul>
 		</div>
 		<div class = "Rpanel">
 		</div>
 	<?			
-
-
-		}
+	}
 	?>
 </body>
 </html>
