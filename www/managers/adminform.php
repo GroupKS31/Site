@@ -1,5 +1,7 @@
 
 <?
+$import("functioms")
+
 	if($_POST["login"] == "" || $_POST["psw"] == "" || count($_POST) > 0){
 
 	echo "
@@ -25,5 +27,8 @@
 			</body>
 		</html>
 		";
+	}
+	else{
+
 	}
 ?>
