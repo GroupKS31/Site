@@ -1,7 +1,23 @@
+<?
+/*
+$i =1;
 
+while($i<=10){
+	$query = "INSERT INTO `place`(`id`, `sector_id`, `number`, `serial`, `flag`) 
+			  VALUES (\"\",\"2\","."\"".$i."\",\"213123\",\"\")";
+			 
+//echo $query;
+
+	$result = queryDB($query);
+	$i++;
+}
+*/
+?>
 <html>
-
+<head>
 <title></title>
+<link rel="stylesheet" type="text/css" href="scheme/stylemain.css">
+</head>
 <body>
 	<?
 	include "functions.php";
@@ -32,22 +48,26 @@
 		$name = $row["name"];
 		$id = $row["id"]
 	?>
-		<div class ="Top">
-			<P>Hello <? echo $name; ?> </p>				
+			<div class ="Top">
+				<P>Hello! <? echo $name; ?> </p>				
+			</div>	
+			<div class="content">
+				<div class = "LPanel">
+					<ul>
+						<?
+							$query = "SELECT * FROM concert WHERE manager_id = "."\"".$id."\"";
+							$result = queryDB($query);
+							while ($row = mysql_fetch_array($result)) echo "<li><p>".$row["name"]."</p></li>";
+		     			?>
+					</ul>
+				</div>
+			<div class = "Rpanel">
+				<p>Rpanel</p>
+			</div>
+		</div>
+		<div class ="Bot">
+				<P>Hello  </p>				
 		</div>	
-		<div class = "LPanel">
-			<ul>
-				<?
-					$query = "SELECT * FROM concert WHERE manager_id = "."\"".$id."\"";
-					$result = queryDB($query);
-					while ($row = mysql_fetch_array($result)) {
-						echo "<li>".$row["name"]."</li>";
-					}
-				 ?>
-			</ul>
-		</div>
-		<div class = "Rpanel">
-		</div>
 	<?			
 	}
 	?>

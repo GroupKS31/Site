@@ -1,0 +1,50 @@
+.Top{
+	height:50px;
+	width: 952px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	background-color: #F8F8FF;
+}
+
+.content{
+	position: absolute;
+	height:500px;
+	width: 952px;
+	position: relative;
+	background-color: #ffffff;
+	margin: 0 auto;
+}
+
+.Lpanel{
+	position: absolute;
+	top:0;
+ 	left:0;
+	height:500px;
+	width: 240px;
+	background-color: #BEBEBE;
+	overflow: scroll;
+}
+
+.Rpanel{
+	position: absolute;
+	top:0;
+ 	right:0;
+
+	height:500px;
+	width: 702px;
+	background-color: #D3D3D3;
+}
+
+.Bot{
+
+	height:50px;
+	width: 952px;
+
+	margin: 0 auto;
+	background-color: #8B8989;
+}
+.LPanel li{
+
+	font-size: 20px;
+	font-family: Arial, Verdana, sans-serif;
+}
