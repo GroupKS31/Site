@@ -1,5 +1,3 @@
-В папке www
-Содержится первоначальная база данных под именеи Site(1).jpg
-Позже будет обновление.Также можно перейти по ссылке
-https://docs.google.com/file/d/0B5H5EAUYn7BFeDdSU0xHbE1KeTg/edit
+Полная бд по ссылке ниже и в файле site.jpg
+https://www.draw.io/?#G0B5H5EAUYn7BFT0RLVV9vRjRlaVk
 ====
