@@ -1,0 +1,152 @@
+.menu{
+	
+	background-color:#423f3f;
+	height:50px;
+	width: 952px;
+	margin:30px auto;
+
+}
+.footBar{
+	
+	background-color:#979595;
+	height:50px;
+	width: 954px;
+	margin:0px auto;
+}
+.main{
+	width: 271px;
+	padding: auto 2px;
+}
+.inf{
+	height: 600px;
+	width: 954px;
+	margin:0px auto;
+	background: linear-gradient(to top, #696969, #DCDCDC);
+}
+ul{
+	
+    margin: 0px;
+	padding: 0px;
+ 	float: left;
+ 	position: absolute;
+}
+
+.l1,.l2,.l3,.l4 {
+
+	line-height:50px;
+	list-style:none;
+	display: inline;
+	width:218px;
+	height:50px;
+	float: left;
+	white-space:nowrap;
+	text-align: center;
+}
+.l4:hover,.l3:hover,.l2:hover ,.l1:hover  {    background-color:#979595;   } 
+.menu a {
+	color: #ffffff; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчёркивание */
+	vertical-align:middle;
+ 	font: 20px Verdana,sans-serif;
+ 	z-index: 500;
+   }
+.inf{	width:954px;	height: 430px;	margin: 60px auto;}
+.line1{	width:954;	height:229;}
+	
+.line2{	margin-top: 15px;	width:954;	height:229;}
+.col11 ,.col12{
+	white-space:nowrap;
+	display: inline;
+	float: left;
+	background-image: url("img/inf1.png");
+	background-repeat: repeat-x;
+	height: 229px;
+	width:472px;
+}
+.col12{	margin-left: 10px;}
+.col21 ,.col22{
+	white-space:nowrap;
+	display: inline;
+	float: left;
+	background-image: url("img/inf2.png");
+	background-repeat: repeat-x;
+	height: 229px;
+	width:472px;
+}
+.col21 img,.col22 img,.col11 img,.col12 img{
+	white-space:nowrap;
+	display: inline;
+	float: left;
+	padding: 5px;
+}
+.txt{
+	white-space:nowrap;
+	display: inline;
+	float: left;
+	margin:5px 0px 5px 5px;
+	width:233px;
+	height:219px;
+	background-color:#423f3f;
+	text-align: center;
+	color: #ffffff;
+	font-size: 20px;
+}
+.txt h3{	font-size: 20px;}
+.col22{	margin-left: 10px;}
+.txt a{ color: #979595;}
+.txt a:hover{	color: #ffffff;}
+
+ul.nav{
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	margin-left:41px;	
+}
+ul.nav li a{
+	display: block;
+	width: 218px;
+	line-height:50px;
+	height:50px;
+	z-index:500;
+}
+
+ul.nav li ul{
+
+	margin: 0px;
+	padding: 0px;
+	z-index:500;
+	display: none;
+	opacity: 0.75;
+	vertical-align:middle;
+	text-align:center;
+}
+ul.nav li ul li{
+	margin: 0px;
+	padding: 0px;
+	list-style:none;
+	text-align: vertical;
+	display: block;
+	z-index:500;
+}
+ul.nav li ul li a{
+	line-height:50px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #423f3f;
+	text-align: center;
+	display: block;
+	width: 218px;
+	height:50px;
+	vertical-align:middle;
+	text-align:center;
+	z-index:500;
+
+}
+ul.nav li:hover ul{ /* Устанавливаем стили для верхнего уровня, когда выводится выпадающий список */
+	    display: block;
+}
+ul.nav li ul li a:hover{
+background-color:#979595;
+border: 1px solid;
+	
+}

@@ -67,42 +67,15 @@ $content = $row["content"];
 	</div>
    			   			
 	<div class="inf" >
-		<div class="line1">
-
-			<div class="left">
-				<img src=<? echo "\"".$pic."\"";?>>
-
-			</div>
-			<div class="right">
-				<? echo $name;?>
-				<br>
-				<? echo $day; ?>
-				<br>
-				<? echo $time;?>
-				<br>
-				<? echo $name_area;?>
-				<br>
-				<? echo $town;?>
-				<br>
-				<? echo $addr ?>
-			</div>
+		<div class="top">
+			<form>
+				<input type="text" name="town" size="15">
+				<input type="submit" value="Поиск">
+			</form>
 		</div>
-		<div class="line2">
-			<div class="left">
-				<?
-					echo $content;
-				?>	
-			</div>
-
-			<div class="right">
-				<p>Осталось билетов</p>
-				<p>Купленно билетов</p>
-				<button>Купить</button>
-			</div>
+		<div class="bot">
+			йцу			
 		</div>
-		
-	</div>
-	<div class="footBar">
 
 	</div>
 	<style type="text/css">

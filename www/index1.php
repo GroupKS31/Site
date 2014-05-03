@@ -62,7 +62,7 @@ $content = $row["content"];
 
 	   				</li>
 	   		</div>
-	   		<div class="l4"><li><a href="../search/index.php"> Поиск</a></li></div>
+	   		<div class="l4"><li><a href=""> Поиск</a></li></div>
 	   	</ul>
 	</div>
    			   			
@@ -103,14 +103,10 @@ $content = $row["content"];
 		
 	</div>
 	<div class="footBar">
-
+			gjjhjj
 	</div>
 	<style type="text/css">
-	.inf{
 	
-		height: 600px;
-		background: linear-gradient(to top, #fefcea, #979595);
-	}
 	.inf .line1{
 		position: relative;
 	}
@@ -157,7 +153,7 @@ $content = $row["content"];
 		display: inline;
 	
 		text-align: left;
-font-size: 20px;
+		font-size: 20px;
 		background-color: #8B8989;
 	}
 	.inf .line2 .right{
@@ -165,11 +161,10 @@ font-size: 20px;
 		top:0;
  		right:10px;
 
-		height:200px;
+		height:400px;
 		width: 200px;
 
 		padding-right: 10px;
-		
 		background-color: #D3D3D3;
 	}
 
