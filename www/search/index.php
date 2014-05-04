@@ -1,43 +1,52 @@
 <?
 include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
 
-//echo "string = ".$_GET["id_con"];
-//echo "string = ".$_GET["id_pic"];
+	$arri = array();
 
-$query = "SELECT ` path` as p FROM `picture` WHERE id="."\"".$_GET["id_pic"]."\"";
-$result = queryDB($query);
-$row =mysql_fetch_array( $result);
+	$query = "SELECT * FROM Small_inf where actuality=1";
+	$result = queryDB($query);
 
-$pic = $row["p"];
+	$count =0;
+	while($row =mysql_fetch_array($result)) {
+		$count++;
+		array_push($arri, array("pic_id"	=>"".$row["pic_id"],
+								"area_id"	=>"".$row["area_id"],
+								"con_id"	=>"".$row["concert_id"],));
+	}	
 
-$query = "SELECT * FROM `concert` WHERE id="."\"".$_GET["id_con"]."\"";
-$result = queryDB($query);
-$row = mysql_fetch_array( $result);
+	$arrd = array();
+	for ($i=0; $i <$count ; $i++) { 
+		$arr = $arri[$i];
+	
+		$query = "SELECT `name`,`town` FROM `area` where id=".$arr["area_id"];
+		$result = queryDB($query);
+		$row =mysql_fetch_array( $result);
+		$town = $row["town"];
+		$club = $row["name"];
 
-$name = $row["name"];
-$day  = $row["date"];
-$time = $row["time"];
+		$query = "SELECT `name` , `date` FROM `concert` where id=".$arr["con_id"];
+		$result = queryDB($query);
 
-$query = "SELECT * FROM `area` WHERE id="."\"".$_GET["id_ar"]."\"";
-$result = queryDB($query);
-$row = mysql_fetch_array( $result);
+		$row =mysql_fetch_array( $result);
+		$name = $row["name"];
+		$date = $row["date"];
 
-$name_area = $row["name"];
-$town = $row["town"];
-$addr = $row["address"];
 
-$query = "SELECT * FROM `article` WHERE id="."\"".$_GET["id_con"]."\"";
-$result = queryDB($query);
-$row = mysql_fetch_array( $result);
+		$query = "SELECT `path` FROM `picture` WHERE id=".$arr["pic_id"];
+		$result = queryDB($query);
+		$row =mysql_fetch_array( $result);
+		$pic = $row["path"];
 
-$query = "SELECT * FROM `content` WHERE id="."\"".$row["content_id"]."\"";
-$result = queryDB($query);
-$row = mysql_fetch_array( $result);
-$content = $row["content"];
+		array_push($arrd, array("town"	=>$town,
+								"club"	=>$club,
+								"name"	=>$name,
+								"date"	=>$date,
+								"pic"	=>$pic,));
+
+
+	}
 
 ?>
-
-
 <html>
 <title>
 	Buying tickets
@@ -68,13 +77,29 @@ $content = $row["content"];
    			   			
 	<div class="inf" >
 		<div class="top">
-			<form>
-				<input type="text" name="town" size="15">
-				<input type="submit" value="Поиск">
+			<form id="form">
+				<input id="INtown" type="text" name="town" size="50">
+				<input id="INfind" type="submit" value="Поиск">
 			</form>
 		</div>
 		<div class="bot">
-			йцу			
+			<?
+			$i =$count;
+			for ($i=0; $i <$count ; $i++) { 
+				$arr = $arrd[$i];
+				$arr1 = $arri[$i];
+			
+				echo "  <div class=\"col11\">
+							<a href=\"../articles/article.php?id_con=".$arr1["con_id"]."&id_pic=".$arr1["pic_id"]."&id_ar=".$arr1["area_id"]."\"><img src=\"".$arr["pic"]."\"></a>
+							<div class=\"txt\">
+								<h3>".$arr["name"]."</h3>
+								".$arr["town"]."<br>
+								".$arr["date"]."<br>
+								".$arr["club"]."<br>
+								<a href=\"../articles/article.php?id_con=".$arr1["con_id"]."&id_pic=".$arr1["pic_id"]."&id_ar=".$arr1["area_id"]."\"><u>Подробнее</u></a>
+							</div>";
+			}
+		 	?>	
 		</div>
 
 	</div>
@@ -83,6 +108,23 @@ $content = $row["content"];
 	
 		height: 600px;
 		background: linear-gradient(to top, #fefcea, #979595);
+	}
+	.inf .top{
+		width: 920px;
+		height: 50px;
+		padding-top: 20px;
+		margin: 0px auto;
+		margin-top: 10px;
+		background-color: #D3D3D3;
+	}
+	#form{
+		margin: 0px,auto;
+	}
+	#INfind{
+    	font-size:25px;
+    }
+	#INtown{
+		font-size:25px;
 	}
 	.inf .line1{
 		position: relative;

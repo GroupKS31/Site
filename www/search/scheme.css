@@ -54,26 +54,17 @@ ul{
 .line1{	width:954;	height:229;}
 	
 .line2{	margin-top: 15px;	width:954;	height:229;}
-.col11 ,.col12{
+.col11{
 	white-space:nowrap;
 	display: inline;
 	float: left;
 	background-image: url("img/inf1.png");
 	background-repeat: repeat-x;
 	height: 229px;
-	width:472px;
+	width:700px;
 }
-.col12{	margin-left: 10px;}
-.col21 ,.col22{
-	white-space:nowrap;
-	display: inline;
-	float: left;
-	background-image: url("img/inf2.png");
-	background-repeat: repeat-x;
-	height: 229px;
-	width:472px;
-}
-.col21 img,.col22 img,.col11 img,.col12 img{
+
+.col11 img{
 	white-space:nowrap;
 	display: inline;
 	float: left;
