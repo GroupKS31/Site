@@ -3,12 +3,13 @@ include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
 
 //echo "string = ".$_GET["id_con"];
 //echo "string = ".$_GET["id_pic"];
+//$_GET["id_ar"]
 
-$query = "SELECT ` path` as p FROM `picture` WHERE id="."\"".$_GET["id_pic"]."\"";
+$query = "SELECT `path` FROM `picture` WHERE id="."\"".$_GET["id_pic"]."\"";
 $result = queryDB($query);
 $row =mysql_fetch_array( $result);
 
-$pic = $row["p"];
+$pic = $row["path"];
 
 $query = "SELECT * FROM `concert` WHERE id="."\"".$_GET["id_con"]."\"";
 $result = queryDB($query);
@@ -26,7 +27,7 @@ $name_area = $row["name"];
 $town = $row["town"];
 $addr = $row["address"];
 
-$query = "SELECT * FROM `article` WHERE id="."\"".$_GET["id_con"]."\"";
+$query = "SELECT * FROM `article` WHERE content_id="."\"".$_GET["id_con"]."\"";
 $result = queryDB($query);
 $row = mysql_fetch_array( $result);
 
