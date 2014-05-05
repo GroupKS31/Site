@@ -2,6 +2,8 @@
 include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
 
 
+SELECT small_inf.id, picture.path, area.name , area.town , concert.date, concert.time FROM small_inf,picture,area,concert WHERE small_inf.pic_id=picture.id and small_inf.area_id=area.id and small_inf.concert_id = concert.id 
+
 function GetSmallInf(){
 	
 	$date ="";

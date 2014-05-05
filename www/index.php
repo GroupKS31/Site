@@ -110,14 +110,12 @@
 				$name = $row["name"];
 				$date = "12.13.14";
 
-				$query = "SELECT ` path` as p FROM `picture` WHERE id="."\"".$ipic."\"";
+
+				$query = "SELECT `path` FROM `picture` WHERE id=".$ipic;
 				$result = queryDB($query);
 				$row =mysql_fetch_array( $result);
-				$pic = $row["p"];
-				$query = "SELECT ` path` as p FROM `picture` WHERE id="."\"".$ipic."\"";
-				$result = queryDB($query);
-				$row =mysql_fetch_array( $result);
-				$pic = $row["p"];
+				$pic = $row["path"];
+
 				?>
 
 				<a href=<? echo "../articles/article.php?id_con=".$icon."&id_pic=".$ipic."&id_ar=".$iarea;?>><img src=<? echo "\"".$pic."\"";?>></a>
