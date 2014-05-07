@@ -1,5 +1,5 @@
 <?
-include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
+include $_SERVER['DOCUMENT_ROOT']."/functions/functions.php";
 
 
 

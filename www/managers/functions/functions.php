@@ -1,5 +1,23 @@
 <?
+function PrintMenu(){
+	echo    "<div class=\"menu\" >
+				<ul class=\"nav\" >
+		  			<div class=\"l1\"><li><a href=\"../index.php\">Главная</a></li></div>
+		   			<div class=\"l2\"><li><a href=\"\"> О нас</a></li></div>
+		   			<div class=\"l3\"><li><a href=\"\"> Жанр</a>
 
+				   			<ul >
+				   				<li class=\"l11\"><a href=\"../search/genre.php?genre=rock\">Rock</a></li>
+				   				<li class=\"l12\"><a href=\"../search/genre.php?genre=pop\">Pop</a></li>
+				   				<li class=\"l13\"><a href=\"../search/genre.php?genre=classic\">Classic</a></li>
+				   			</ul>
+
+			   				</li>
+			   		</div>
+			   		<div class=\"l4\"><li><a href=\"../search/index.php\"> Поиск</a></li></div>
+			   	</ul>
+			</div>";
+}
 
 function queryDB($query){
 	$db_id =  mysql_connect("localhost", "manager", "") or die (mysql_error());

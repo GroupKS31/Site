@@ -1,3 +1,8 @@
+<?
+include $_SERVER['DOCUMENT_ROOT']."/functions/functions1.php";
+
+?>
+
 <html>
 <title>
 	Buying tickets
@@ -10,22 +15,9 @@
 </head>
 <body style="background-color:#ffffff">
 
-	<div class="menu" >
-		<ul class="nav" >
-  			 <div class="l1"><li><a href="../index.php">Главная</a></li></div>
-   			<div class="l2"><li><a href=""> О нас</a></li></div>
-   			<div class="l3"><li><a href=""> Жанр</a>
-
-		   			<ul >
-		   				<li class="l11"><a href="../search/genre.php?genre=rock">Rock</a></li>
-		   				<li class="l12"><a href="../search/genre.php?genre=pop">Pop</a></li>
-		   				<li class="l13"><a href="../search/genre.php?genre=classic">Classic</a></li>
-		   			</ul>
-
-	   				</li>
-	   		</div>
-	   		<div class="l4"><li><a href="../search/index.php"> Поиск</a></li></div>
-	   			
+<!--Menu-->
+	<?		PrintMenu();	?>
+<!--End Menu-->   			
 	   		</div>
   		</ul>
 	</div>
@@ -34,11 +26,15 @@
 		
 		<div id="rotator">
   			<ul>
-  			<li class="show"><a href="" ><img src="img/banners/lp.png" alt="pic1" /></a></li>
-   			<li ><a href="" ><img src="img/banners/30Seconds.png" alt="pic2" /></a></li>
-   			<li ><a href="" ><img src="img/banners/korn.png" alt="pic3" /></a></li>
-   			<li ><a href="" ><img src="img/banners/rhcp.png" alt="pic4" /></a></li>	
-			</ul>
+  				<?
+					$banners = GetBanners();
+					for( $i=0; $i< count($banners);$i++ ) {
+						if($i == 0)	echo   "<li class=\"show\"><a href=".$banners[$i]["href"]."=><img src=\"".$banners[$i]["path"]."\" alt=\"pic".$i."\" /></a></li>";
+						else	    echo   "<li><a href=".$banners[$i]["href"]."=><img src=\"".$banners[$i]["path"]."\" alt=\"pic".$i."\" /></a></li>";
+					}
+  				?>
+  			</ul>
+  		
 			<script type="text/javascript">
 				 
 				function theRotator() {
@@ -76,14 +72,11 @@
 	</div>
 	<div class="inf" >
 		<?
-			include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
-			GetSmallInf("WHERE article.flag = 1\n");
-
-
+	
+		GetSmallInf("WHERE article.flag = 1\n");		
 		?>
-
 		</div>
-	</div>
+
 	<!--<div class="footBar">
 
 	</div>-->

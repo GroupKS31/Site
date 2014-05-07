@@ -1,33 +1,6 @@
 <?
-include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
+include $_SERVER['DOCUMENT_ROOT']."/functions/functions1.php";
 
-
-
-$pic = $_GET["logo"];
-$iarea = $_GET["iarea"];
-$iconcert = $_GET["iconcert"];
-$icontent = $_GET["icontent"];
-
-$query = "SELECT * FROM `concert` WHERE id=".$iconcert;
-$result = queryDB($query);
-$row = mysql_fetch_array( $result);
-
-$name = $row["name"];
-$day  = $row["date"];
-$time = $row["time"];
-
-$query = "SELECT * FROM `area` WHERE id="."\"".$iarea."\"";
-$result = queryDB($query);
-$row = mysql_fetch_array( $result);
-
-$name_area = $row["name"];
-$town = $row["town"];
-$addr = $row["address"];
-
-$query = "SELECT content FROM `content` WHERE id="."\"".$icontent."\"";
-$result = queryDB($query);
-$row = mysql_fetch_array( $result);
-$content = $row["content"];
 
 ?>
 
@@ -41,60 +14,12 @@ $content = $row["content"];
 	<link type='text/css' rel='stylesheet' href='scheme.css' />
 </head>
 <body style="background-color:#ffffff">
-
-	<div class="menu" >
-		<ul class="nav" >
-  			<div class="l1"><li><a href="../index.php">Главная</a></li></div>
-   			<div class="l2"><li><a href=""> О нас</a></li></div>
-   			<div class="l3"><li><a href=""> Жанр</a>
-
-		   			<ul >
-		   				<li class="l11"><a href="../search/genre.php?genre=rock">Rock</a></li>
-		   				<li class="l12"><a href="../search/genre.php?genre=pop">Pop</a></li>
-		   				<li class="l13"><a href="../search/genre.php?genre=classic">Classic</a></li>
-		   			</ul>
-
-	   				</li>
-	   		</div>
-	   		<div class="l4"><li><a href="../search/index.php"> Поиск</a></li></div>
-	   	</ul>
-	</div>
+<!--Menu-->
+	<?		PrintMenu();	?>
+<!--End Menu-->   
    			   			
 	<div class="inf" >
-		<div class="line1">
-
-			<div class="left">
-				<img src=<? echo "\"".$pic."\"";?>>
-
-			</div>
-			<div class="right">
-				<? echo $name;?>
-				<br>
-				<? echo $day; ?>
-				<br>
-				<? echo $time;?>
-				<br>
-				<? echo $name_area;?>
-				<br>
-				<? echo $town;?>
-				<br>
-				<? echo $addr ?>
-			</div>
-		</div>
-		<div class="line2">
-			<div class="left">
-				<?
-					echo $content;
-				?>	
-			</div>
-
-			<div class="right">
-				<p>Осталось билетов</p>
-				<p>Купленно билетов</p>
-				<button>Купить</button>
-			</div>
-		</div>
-		
+		Мы служим свету
 	</div>
 	<div class="footBar">
 

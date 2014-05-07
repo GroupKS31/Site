@@ -1,5 +1,5 @@
 <?
-include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
+include $_SERVER['DOCUMENT_ROOT']."/functions/functions1.php";
 ?>
 <html>
 <title>
@@ -11,23 +11,9 @@ include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
 </head>
 <body style="background-color:#ffffff">
 
-	<div class="menu" >
-		<ul class="nav" >
-  			<div class="l1"><li><a href="../index.php">Главная</a></li></div>
-   			<div class="l2"><li><a href=""> О нас</a></li></div>
-   			<div class="l3"><li><a href=""> Жанр</a>
-
-		   			<ul >
-		   				<li class="l11"><a href="../search/genre.php?genre=rock">Rock</a></li>
-		   				<li class="l12"><a href="../search/genre.php?genre=pop">Pop</a></li>
-		   				<li class="l13"><a href="../search/genre.php?genre=classic">Classic</a></li>
-		   			</ul>
-
-	   				</li>
-	   		</div>
-	   		<div class="l4"><li><a href="../search/index.php"> Поиск</a></li></div>
-	   	</ul>
-	</div>
+<!--Menu-->
+	<?		PrintMenu();	?>
+<!--End Menu-->   
    			   			
 	<div class="inf" >
 		
