@@ -17,9 +17,9 @@
    			<div class="l3"><li><a href=""> Жанр</a>
 
 		   			<ul >
-		   				<li class="l11"><a href="">Rock</a></li>
-		   				<li class="l12"><a href="">Pop</a></li>
-		   				<li class="l13"><a href="">Classic</a></li>
+		   				<li class="l11"><a href="../search/genre.php?genre=rock">Rock</a></li>
+		   				<li class="l12"><a href="../search/genre.php?genre=pop">Pop</a></li>
+		   				<li class="l13"><a href="../search/genre.php?genre=classic">Classic</a></li>
 		   			</ul>
 
 	   				</li>
@@ -75,84 +75,17 @@
 		</script>
 	</div>
 	<div class="inf" >
-		<div class="line1">
-			<div class="col11">
-				<a href=""><img src="img/pic1.png"></a>
-				<div class="txt">
-					<h3>Linkin Park</h3>
-					20.04.2015<br>
-					Харьков<br>
-					Палац Спорта<br>
-					<a href=""><u>Подробнее</u></a>
-				</div>
-			</div>
-			<div class="col12">
-
-				<?
-				include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
-
-				$query = "SELECT * FROM Small_inf ";
-				$result = queryDB($query);
-				$row =mysql_fetch_array( $result);
-				$ipic = $row["pic_id"];
-				$iarea = $row["area_id"];
-				$icon = $row["concert_id"];
-				
-				$query = "SELECT `name`,`town` FROM `area` where id=".$iarea;
-				$result = queryDB($query);
-				$row =mysql_fetch_array( $result);
-				$town = $row["town"];
-				$club = $row["name"];
-
-				$query = "SELECT `name` FROM `concert` where id=".$icon;
-				$result = queryDB($query);
-				$row =mysql_fetch_array( $result);
-				$name = $row["name"];
-				$date = "12.13.14";
+		<?
+			include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
+			GetSmallInf("WHERE article.flag = 1\n");
 
 
-				$query = "SELECT `path` FROM `picture` WHERE id=".$ipic;
-				$result = queryDB($query);
-				$row =mysql_fetch_array( $result);
-				$pic = $row["path"];
+		?>
 
-				?>
-
-				<a href=<? echo "../articles/article.php?id_con=".$icon."&id_pic=".$ipic."&id_ar=".$iarea;?>><img src=<? echo "\"".$pic."\"";?>></a>
-				<div class="txt">
-					<h3><?echo $name; ?></h3>
-					<? echo $date; ?><br>
-					<? echo $town; ?><br>
-					<? echo $club; ?><br>
-					<a href=<? echo "index1.php?id_con=".$icon."&id_pic=".$ipic."&id_ar=".$iarea;?>><u>Подробнее</u></a>
-				</div>
-			</div>
-		</div>
-		<div class="line2">
-			<div class="col21">
-				<a href=""><img src="img/pic3.png"></a>
-				<div class="txt">
-					<h3>RHCP</h3>
-					17.05.2014<br>
-					Харьков<br>
-					Палац Спорта<br>
-					<a href=""><u>Подробнее</u></a>
-				</div>
-			</div>
-			<div class="col22">
-				<a href=""><img src="img/pic4.png"></a>
-				<div class="txt">
-					<h3>Korn</h3>
-					17.10.2014<br>
-					Харьков<br>
-					Палац Спорта<br>
-					<a href=""><u>Подробнее</u></a>
-				</div>
-			</div>
 		</div>
 	</div>
-	<div class="footBar">
+	<!--<div class="footBar">
 
-	</div>
+	</div>-->
 </body>
 </html>

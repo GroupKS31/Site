@@ -2,7 +2,6 @@
 include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
 
 
-SELECT small_inf.id, picture.path, area.name , area.town , concert.date, concert.time FROM small_inf,picture,area,concert WHERE small_inf.pic_id=picture.id and small_inf.area_id=area.id and small_inf.concert_id = concert.id 
 
 function GetSmallInf(){
 	
@@ -12,11 +11,11 @@ function GetSmallInf(){
 	$name ="";
 	$pic  ="";
 
-	$query = "SELECT * FROM Small_inf ";
+	$query = "SELECT * FROM article ";
 	$result = queryDB($query);
 	$row =mysql_fetch_array( $result);
-	$ipic = $row["pic_id"];
-	$iarea = $row["area_id"];
+	$ipic = $row["pic_id"];			/*byltrc*/
+	$iband=$row["band_id"];
 	$icon = $row["concert_id"];
 	
 	$query = "SELECT `name`,`town` FROM `area` where id=".$iarea;
@@ -48,5 +47,9 @@ function GetSmallInf(){
 			</div>
 		 ";
 }
+
+
+
+
 ?>
 			

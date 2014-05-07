@@ -1,13 +1,5 @@
 <?
 include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
-
-//"where band.band_name like \'%to%\'\n"
-
-	$arri = array();
-
-
-
-
 ?>
 <html>
 <title>
@@ -38,34 +30,11 @@ include $_SERVER['DOCUMENT_ROOT']."/managers/functions.php";
 	</div>
    			   			
 	<div class="inf" >
-		<div class="top">
-			<form method = "post" id="form">
-				<input id="INtown" type="text" name="search" size="50">
-				<input id="INfind" type="submit" value="Поиск"><br>
-				<input type="radio" name="band" >Группа
-				<input type="radio" name="town" >Город
-			</form>
-		</div>
-		<div class="bot">
-			<?
-			if($_POST["search"]!=""){
-				if ($_POST["band"] = "on") {
-					$sql_where = "where band.band_name like '%".$_POST["search"]."%'\n";
-					GetSmallInf( $sql_where);
-
-				}
-				
-				if ($_POST["town"]="on") {
-					$query = "SELECT id FROM area where area.town like '%".$_POST["search"]."%'\n";
-					$result = queryDB($query);
-					while ($row = mysql_fetch_row($result)) {
-						$sql_where = "where concert.area_id=".$row[0];
-					    GetSmallInf( $sql_where);
-					}
-				}
-			}
 		
-
+		
+			<?
+				$sql_where="where band.genre like '%".$_GET["genre"]."%'";
+				GetSmallInf( $sql_where);
 
 		 	?>	
 		</div>

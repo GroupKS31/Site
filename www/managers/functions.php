@@ -13,14 +13,65 @@ function alert($str){
 				alert(\"".$str."\");
 			</script>";
 }
-function menu(){
 
-	echo "
-		<ul>
-			<li><a href=\"index.php\">Главная</a></li>
-			<li><a href=\"show.php\">Показать всю информацию</a></li>
-			<li><a href=\"add.php\">Добавление</a></li>
-			<li><a href=\"delete.php\">Удаление</a></li>
-		<ul>";
+function GetSmallInf( $sql_where){
+
+	$banners = array();
+	$sql = "SELECT * FROM article \n"
+    . "LEFT JOIN concert ON concert.id = article.concert_id \n"
+    . "LEFT JOIN content ON content.id = article.content_id \n"
+    . "LEFT JOIN band on band.id =article.band_id \n"
+    . $sql_where;
+
+	$result = queryDB($sql);
+	while($row =mysql_fetch_row( $result)){
+
+		$ipicl = $row[20];			
+		$ipicb = $row[21];			
+		$iarea = $row[10];
+		$iarticle = $row[0];
+		$iconcert = $row[4];
+		$icontent = $row[3];
+		
+
+		$band_name= $row[17];
+		$date = $row[11];
+		$time = $row[12];
+		$content = $row[15];
+		$genre   = $row[18];
+
+			
+		$query = "SELECT `name`,`town` FROM `area` where id=".$iarea;
+		$result1 = queryDB($query);
+		$row1 =mysql_fetch_array( $result1);
+		$town = $row1["town"];
+		$club = $row1["name"];
+
+		$query = "SELECT `path` FROM `picture` WHERE id="."\"".$ipicl."\"";
+		$result1 = queryDB($query);
+		$row =mysql_fetch_array( $result1);
+		$logo = $row["path"];
+
+
+		$query = "SELECT `path` FROM `picture` WHERE id="."\"".$ipicb."\"";
+		$result1 = queryDB($query);
+		$row =mysql_fetch_array( $result1);
+		$banner = $row["banner"];
+		$href =  "\"../articles/article.php?id=".$iarticle."&logo=".$logo."&icontent=".$icontent."&iarea=".$iarea."&iconcert=".$iconcert."\"";
+	
+		array_push($banners,array("path"=> $banner, 
+								  "href"=> $href  ,));
+
+		echo "  <div class=\"col11\">
+					<a href=".$href."><img src=".$logo."></a>
+					<div class=\"txt\">
+						<h3>".$band_name."</h3>
+						".$town."<br>
+						".$date."<br>
+						".$club."<br>
+					<a href=".$href."><u>Подробнее</u></a>
+					</div>
+				</div>";
+		}
+	return $banners;
 }
-?>
