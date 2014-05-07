@@ -82,13 +82,15 @@ $content = $row["content"];
 		</div>
 		
 	</div>
-	<div class="footBar">
 
-	</div>
+	<!--Menu-->
+	<?		PrintFooter();	?>
+<!--End Menu--> 
+	
 	<style type="text/css">
 	.inf{
 	
-		height: 600px;
+		min-height: 600px;
 		background: linear-gradient(to top, #fefcea, #979595);
 	}
 	.inf .line1{

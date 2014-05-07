@@ -18,7 +18,7 @@
 	padding: auto 2px;
 }
 .inf{
-	height: 600px;
+	min-height: 600px;
 	width: 954px;
 	margin:0px auto;
 	background: linear-gradient(to top, #696969, #DCDCDC);
