@@ -30,7 +30,24 @@ function PrintMenu(){
 function PrintFooter(){
 
 	echo "	<div class=\"footBar\">
-			</div>";
+				<u>Creators</u>:
+				<i><h4>Pozniak Anatolyi, Yacina Dmitiy, Paronikian Papin, Krickiy Roman</h4></i>
+			</div>
+			<style type=\"text/css\">
+				.footBar{
+					white-space:nowrap;
+					color: #ffffff;
+					font-size: 20px;
+				}
+				.footBar h4{
+					margin-top:0px;
+					margin-left:80px;
+					white-space:nowrap;
+					color: #ffffff;
+					font-size: 20px;
+				}
+			</style>";
+
 }
 
 function PrintRotator(){
@@ -72,7 +89,7 @@ function PrintRotator(){
 
 }
 function queryDB($query){
-	$db_id =  mysql_connect("localhost", "", "") or die (mysql_error());
+	$db_id =  mysql_connect("localhost", "manager", "") or die (mysql_error());
 	$my_db = mysql_select_db("site", $db_id) or die (mysql_error()); 
 	$result = mysql_query($query,$db_id) or die(mysql_error()); 
 	mysql_close($db_id) or die (mysql_error());
@@ -127,7 +144,7 @@ function GetSmallInf( $sql_where){
 		$result1 = queryDB($query);
 		$row =mysql_fetch_array( $result1);
 		$banner = $row["banner"];
-		$href =  "\"../articles/article.php?id=".$iarticle."&logo=".$logo."&icontent=".$icontent."&iarea=".$iarea."&iconcert=".$iconcert."\"";
+		$href =  "\"../articles/article.php?id=".$iarticle."&logo=".$logo."&icontent=".$icontent."&iarea=".$iarea."&iconcert=".$iconcert."&band_name=".$band_name."\"";
 	
 		array_push($banners,array("path"=> $banner, 
 								  "href"=> $href  ,));

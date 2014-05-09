@@ -28,6 +28,11 @@ $query = "SELECT content FROM `content` WHERE id="."\"".$icontent."\"";
 $result = queryDB($query);
 $row = mysql_fetch_array( $result);
 $content = $row["content"];
+$content1 = $content;
+
+
+$cont =str_replace($_GET["band_name"], "<a href=\"\">".$_GET["band_name"]."</a>", $content1);
+echo $cont;
 
 ?>
 
